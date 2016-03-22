@@ -1,4 +1,6 @@
-# Medical Device Server
+[![Build Status](https://travis-ci.org/matheussampaio/medical-device-server.svg?branch=master)](https://travis-ci.org/matheussampaio/medical-device-server)
+
+Medical Device Server
 ================
 
 # Requirements:
