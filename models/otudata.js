@@ -1,7 +1,7 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var OUTData = restful.model('outdata', new mongoose.Schema({
+var OTUData = restful.model('otudata', new mongoose.Schema({
   date: {
     type: String,
     trim: true
@@ -33,4 +33,4 @@ var OUTData = restful.model('outdata', new mongoose.Schema({
 }))
 .methods(['get', 'post', 'put', 'delete']);
 
-module.exports = OUTData;
+module.exports = OTUData;

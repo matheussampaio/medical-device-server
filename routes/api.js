@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var OUTData = require('../models/outdata');
+var OTUData = require('../models/otudata');
 
 module.exports = function(app) {
-  OUTData.register(app, '/api/outdata');
+  OTUData.register(app, '/api/otudata');
 
   return router;
 };
