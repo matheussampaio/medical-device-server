@@ -1,6 +1,6 @@
 {
   "extends": [
-    "airbnb/base"
+    "airbnb/legacy"
   ],
   "env": {
     "es6": false

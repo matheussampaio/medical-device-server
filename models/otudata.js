@@ -1,26 +1,26 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var OTUData = restful.model('otudata', new mongoose.Schema({
-  date: {
-    type: String,
-    trim: true
-  },
-  time: {
-    type: String,
-    trim: true
+var OTUSchema = new mongoose.Schema({
+  dateTime: {
+    type: Number,
+    trim: true,
+    required: true
   },
   glucose: {
-    type: String,
-    trim: true
+    type: Number,
+    trim: true,
+    required: true
   },
   serial: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
   unit: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
   userFlag: {
     type: String,
@@ -30,7 +30,11 @@ var OTUData = restful.model('otudata', new mongoose.Schema({
     type: String,
     trim: true
   }
-}))
-.methods(['get', 'post', 'put', 'delete']);
+});
+
+OTUSchema.index({ dateTime: 1, serial: 1 }, { unique: true });
+
+var OTUData = restful.model('otudata', OTUSchema)
+  .methods(['get', 'post', 'put', 'delete']);
 
 module.exports = OTUData;

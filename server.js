@@ -1,5 +1,4 @@
 var http = require('http');
-var path = require('path');
 var morgan = require('morgan');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -22,7 +21,7 @@ var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb:
 
 // Makes connection asynchronously. Mongoose will queue up database
 // operations and release them when the connection is complete.
-mongoose.connect(uristring, function(err, res) {
+mongoose.connect(uristring, function (err, res) {
   if (err) {
     console.log('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
@@ -58,13 +57,13 @@ app.use('/api', api(app));
 // serve index and view partials
 app.get('/', index.index);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.status(404).send({ error: 'Page not found', status: 404 });
 });
 
 /**
  * Start Server
  */
-http.createServer(app).listen(app.get('port'), function() {
+http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
