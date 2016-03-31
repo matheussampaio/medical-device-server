@@ -34,10 +34,10 @@ mongoose.connect(uristring, function (err, res) {
  */
 app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.json());
 app.use(methodOverride());
 
 var env = process.env.NODE_ENV || 'development';

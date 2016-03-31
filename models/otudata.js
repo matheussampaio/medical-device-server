@@ -37,4 +37,10 @@ OTUSchema.index({ dateTime: 1, serial: 1 }, { unique: true });
 var OTUData = restful.model('otudata', OTUSchema)
   .methods(['get', 'post', 'put', 'delete']);
 
+OTUData.before('post', function (req, res, next) {
+  console.log(req);
+
+  next();
+});
+
 module.exports = OTUData;
